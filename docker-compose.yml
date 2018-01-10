@@ -1,6 +1,7 @@
 version: '2.3'
 services:
   kibana:
+    container_name: kibana
     build: ./kibana
     image: cisien/kibana
     ports:
@@ -9,18 +10,16 @@ services:
     depends_on:
       - "elasticsearch"
   elasticsearch:
+    container_name: elasticsearch
     build: ./elasticsearch
     image: cisien/elasticsearch
     ports:
       - "9200:9200"
       - "9300:9300"
     volumes:
-      - es:c:/data
+      - d:\data:c:\data
     restart: always
-    mem_limit: 2684354560
-
-volumes:
-  es:
+    mem_limit: 3684354560
 
 networks:
   default:
