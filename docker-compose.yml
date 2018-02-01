@@ -17,10 +17,13 @@ services:
       - "9200:9200"
       - "9300:9300"
     volumes:
-      - d:\data:c:\data
+      - elastic-data:c:\data
     restart: always
     mem_limit: 3684354560
 
+volumes:
+  elastic-data:
+    
 networks:
   default:
     external:
